@@ -139,7 +139,7 @@
       </div>
     </div>
 
-    <div class="bottomrow"><span id="donate">☕ donate</span><span class="sep">·</span><span id="ghlink"><canvas id="ghico" class="ghico" width="14" height="14"></canvas>&nbsp;<span id="ghlabel">github</span></span><span class="sep">·</span><span id="fbtoggle">🐞 found a bug?</span><span class="sep">·</span><span id="newslink">📰 news</span></div>
+    <div class="bottomrow"><span id="donate">☕ donate</span><span class="sep">·</span><span id="ghlink"><canvas id="ghico" class="ghico" width="14" height="14"></canvas>&nbsp;<span id="ghlabel">github</span></span><span class="sep">·</span><span id="fbtoggle">🐞 found a bug?</span><span class="sep">·</span><span id="byline">by goshakazakov</span></div>
   </div>
 
   <div id="fbov">
@@ -176,13 +176,13 @@
 <script>
   const $ = (id)=>document.getElementById(id);
   const statusEl=$('status'), btn=$('go'), overlay=$('overlay');
-  const CLOUD='https://134-209-203-141.sslip.io:8444'; // DO-дроплет (амстердам), рядом с VPN — лимит памяти 500M, MAX_CONCURRENT=1
+  const CLOUD='https://html34.goshakazakov.ru:8444'; // DO-дроплет (амстердам), рядом с VPN — лимит памяти 500M, MAX_CONCURRENT=1
   function setStatus(t,cls){ statusEl.textContent=t; statusEl.className='status'+(cls?' '+cls:''); }
 
   /* ══ ЯЗЫК (EN по умолчанию, выбор хранится в clientStorage) ══ */
   const I18N={
-    en:{tabPlugin:'Plugin',tabCredits:'Credits',legend:'Import website into Figma',lurl:'URL · multiple allowed, one per line',lw:'Width, px',build:'▶ Build',creditsLabel:'Credits:',clicker:'⛏ Clicker',mine:'⛏ Mine',collect:'Collect',hintClick:'×8 taps = +1 credit',hintMine:'pickaxe smashes blocks into credit bits, rare NUGGET ×10',dig:'⛏ Dig',donate:'☕ donate',bug:'🐞 found a bug?',news:'📰 news',fbTitle:'🐞 Feedback',fbLabel:'Describe the problem:',fbPh:'what broke / on which site…',send:'Send',cancel:'Cancel',fbOk:'thanks! sent ✓',impTitle:'Importing files…',connecting:'connecting…',rendering:'rendering ',building:'building in Figma… ',images:' images',nodes:'building nodes…',done:'done',sites:'sites',doneOk:'done ✓',doneBig:'Done ✓',err:'error: ',timeout:'server timeout (>2.5 min) — heavy site?',noConn:'no connection to server',enterUrl:'enter a URL',srvRet:'server returned ',buildErr:'build error: ',srvDown:'server unavailable — try again later',nugget:'NUGGET ×10!',crash:'💥 crash — click/space to restart',jump:'click / space — jump',best:'  best ',knob:'volume — drag to turn'},
-    ru:{tabPlugin:'Плагин',tabCredits:'Кредиты',legend:'Импорт сайта в Figma',lurl:'URL · можно несколько, по одному в строке',lw:'Ширина, px',build:'▶ Собрать',creditsLabel:'Кредитов:',clicker:'⛏ Кликер',mine:'⛏ Шахта',collect:'Собрать',hintClick:'×8 нажатий = +1 кредит',hintMine:'кирка дробит кубики → кусочки кредита, редко САМОРОДОК ×10',dig:'⛏ Копать',donate:'☕ донат',bug:'🐞 нашли баг?',news:'📰 новости',fbTitle:'🐞 Обратная связь',fbLabel:'Опишите проблему:',fbPh:'что сломалось / на каком сайте…',send:'Отправить',cancel:'Отмена',fbOk:'спасибо! отправлено ✓',impTitle:'Импорт файлов…',connecting:'соединение…',rendering:'рендерю ',building:'строю в Figma… ',images:' картинок',nodes:'строю ноды…',done:'готово',sites:'сайтов',doneOk:'готово ✓',doneBig:'Готово ✓',err:'ошибка: ',timeout:'сервер долго не отвечает (>2.5 мин) — сайт тяжёлый?',noConn:'нет связи с сервером',enterUrl:'введи URL',srvRet:'сервер вернул ',buildErr:'ошибка построения: ',srvDown:'сервер недоступен — попробуй чуть позже',nugget:'САМОРОДОК ×10!',crash:'💥 авария — клик/пробел = заново',jump:'клик / пробел — прыжок',best:'  рек ',knob:'громкость — крути'}
+    en:{tabPlugin:'Plugin',tabCredits:'Credits',legend:'Import website into Figma',lurl:'URL · multiple allowed, one per line',lw:'Width, px',build:'▶ Build',creditsLabel:'Credits:',clicker:'⛏ Clicker',mine:'⛏ Mine',collect:'Collect',hintClick:'×8 taps = +1 credit',hintMine:'pickaxe smashes blocks into credit bits, rare NUGGET ×10',dig:'⛏ Dig',donate:'☕ donate',bug:'🐞 found a bug?',byline:'by goshakazakov',fbTitle:'🐞 Feedback',fbLabel:'Describe the problem:',fbPh:'what broke / on which site…',send:'Send',cancel:'Cancel',fbOk:'thanks! sent ✓',impTitle:'Importing files…',connecting:'connecting…',rendering:'rendering ',building:'building in Figma… ',images:' images',nodes:'building nodes…',done:'done',sites:'sites',doneOk:'done ✓',doneBig:'Done ✓',err:'error: ',timeout:'server timeout (>2.5 min) — heavy site?',noConn:'no connection to server',enterUrl:'enter a URL',srvRet:'server returned ',buildErr:'build error: ',srvDown:'server unavailable — try again later',nugget:'NUGGET ×10!',crash:'💥 crash — click/space to restart',jump:'click / space — jump',best:'  best ',knob:'volume — drag to turn'},
+    ru:{tabPlugin:'Плагин',tabCredits:'Кредиты',legend:'Импорт сайта в Figma',lurl:'URL · можно несколько, по одному в строке',lw:'Ширина, px',build:'▶ Собрать',creditsLabel:'Кредитов:',clicker:'⛏ Кликер',mine:'⛏ Шахта',collect:'Собрать',hintClick:'×8 нажатий = +1 кредит',hintMine:'кирка дробит кубики → кусочки кредита, редко САМОРОДОК ×10',dig:'⛏ Копать',donate:'☕ донат',bug:'🐞 нашли баг?',byline:'by гошаказаков',fbTitle:'🐞 Обратная связь',fbLabel:'Опишите проблему:',fbPh:'что сломалось / на каком сайте…',send:'Отправить',cancel:'Отмена',fbOk:'спасибо! отправлено ✓',impTitle:'Импорт файлов…',connecting:'соединение…',rendering:'рендерю ',building:'строю в Figma… ',images:' картинок',nodes:'строю ноды…',done:'готово',sites:'сайтов',doneOk:'готово ✓',doneBig:'Готово ✓',err:'ошибка: ',timeout:'сервер долго не отвечает (>2.5 мин) — сайт тяжёлый?',noConn:'нет связи с сервером',enterUrl:'введи URL',srvRet:'сервер вернул ',buildErr:'ошибка построения: ',srvDown:'сервер недоступен — попробуй чуть позже',nugget:'САМОРОДОК ×10!',crash:'💥 авария — клик/пробел = заново',jump:'клик / пробел — прыжок',best:'  рек ',knob:'громкость — крути'}
   };
   let lang='en';
   const t=(k)=>(I18N[lang]&&I18N[lang][k])||I18N.en[k]||k;
@@ -194,7 +194,7 @@
     document.querySelector('[data-cmode="click"]').textContent=t('clicker');
     document.querySelector('[data-cmode="casino"]').textContent=t('mine');
     $('collectBtn').textContent=t('collect'); $('hintClick').textContent=t('hintClick'); $('hintMine').textContent=t('hintMine'); $('digBtn').textContent=t('dig');
-    $('donate').textContent=t('donate'); $('fbtoggle').textContent=t('bug'); $('newslink').textContent=t('news');
+    $('donate').textContent=t('donate'); $('fbtoggle').textContent=t('bug'); $('byline').textContent=t('byline');
     $('fbtitle').textContent=t('fbTitle'); $('fblabel').textContent=t('fbLabel'); $('fbtext').placeholder=t('fbPh');
     $('fbsend').textContent=t('send'); $('fbclose').textContent=t('cancel'); $('fbok').textContent=t('fbOk');
     $('impTitleText').textContent=t('impTitle'); $('cancelbtn').textContent=t('cancel');
@@ -221,7 +221,7 @@
   /* иконки в заголовках */
   function drawIcon(id){ const t=$(id); if(!t)return; const c=t.getContext('2d'); c.clearRect(0,0,14,14); c.fillStyle='#fff'; c.fillRect(3,1,8,12); c.fillStyle='#000'; c.fillRect(3,1,8,1); c.fillRect(3,12,8,1); c.fillRect(3,1,1,12); c.fillRect(10,1,1,12); c.fillStyle='#1084d0'; c.fillRect(4,3,5,1); c.fillStyle='#888'; c.fillRect(4,5,6,1); c.fillRect(4,7,4,1); c.fillRect(4,9,5,1); }
   drawIcon('ttico');
-  $('newslink').addEventListener('click',()=>{ try{window.open('https://t.me/forgegeorge','_blank');}catch(e){} });
+  $('byline').addEventListener('click',()=>{ try{window.open('https://t.me/forgegeorge','_blank');}catch(e){} });
   const REPO='https://github.com/Rreerreea/HTML34';
   $('ghlink').addEventListener('click',()=>{ try{window.open(REPO,'_blank');}catch(e){} });
   $('donate').addEventListener('click',()=>{ try{window.open('https://pay.cloudtips.ru/p/2c12c3c2','_blank');}catch(e){} });

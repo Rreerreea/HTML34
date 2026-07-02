@@ -3,10 +3,12 @@
   "api": "1.0.0",
   "main": "code.js",
   "ui": "ui.html",
-  "editorType": ["figma"],
+  "editorType": [
+    "figma"
+  ],
   "networkAccess": {
     "allowedDomains": [
-      "https://134-209-203-141.sslip.io:8444",
+      "https://html34.goshakazakov.ru:8444",
       "https://ice1.somafm.com",
       "https://unpkg.com"
     ],
