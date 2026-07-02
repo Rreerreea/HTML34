@@ -6,7 +6,8 @@ figma.showUI(__html__, { width: 400, height: 510 });
 // кредиты-кликер + язык: грузим сохранённые значения при старте
 (async () => {
   try {
-    const c = await figma.clientStorage.getAsync('credits');
+    let c = await figma.clientStorage.getAsync('credits');
+    if (c === undefined) { c = 2; figma.clientStorage.setAsync('credits', 2).catch(() => {}); } // стартовый грант новичку
     figma.ui.postMessage({ type: 'credits', value: c || 0 });
     const l = await figma.clientStorage.getAsync('lang');
     if (l) figma.ui.postMessage({ type: 'lang', value: l });
