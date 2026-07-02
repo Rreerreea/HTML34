@@ -1,11 +1,13 @@
 {
   "name": "HTML34",
+  "id": "1654618257445111565",
   "api": "1.0.0",
   "main": "code.js",
   "ui": "ui.html",
   "editorType": [
     "figma"
   ],
+  "documentAccess": "dynamic-page",
   "networkAccess": {
     "allowedDomains": [
       "https://html34.goshakazakov.ru:8444",
