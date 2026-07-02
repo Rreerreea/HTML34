@@ -184,6 +184,7 @@
   const $ = (id)=>document.getElementById(id);
   const statusEl=$('status'), btn=$('go'), overlay=$('overlay');
   const CLOUD='https://html34.goshakazakov.ru:8444'; // DO-дроплет (амстердам), рядом с VPN — лимит памяти 500M, MAX_CONCURRENT=1
+  const CHANNEL='community'; // маркер версии для серверной статистики
   const CREDITS_REQUIRED=false; // true в раздаваемой версии: импорт списывает кредиты, новичку даётся 2
   function setStatus(t,cls){ statusEl.textContent=t; statusEl.className='status'+(cls?' '+cls:''); }
 
@@ -451,7 +452,7 @@
       phase=1;targP=8;fakeP=0;$('animlabel').innerHTML=pre+t('connecting');setStatus(pre+t('rendering')+u+'…');
       try{
         const ctrl=new AbortController(); curCtrl=ctrl; const to=setTimeout(()=>ctrl.abort(),150000);
-        const res=await fetch(server+'/capture',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:u,width:wd}),signal:ctrl.signal}).finally(()=>clearTimeout(to));
+        const res=await fetch(server+'/capture',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url:u,width:wd,src:CHANNEL}),signal:ctrl.signal}).finally(()=>clearTimeout(to));
         if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error||(t('srvRet')+res.status));}
         const data=JSON.parse(await res.text()); const imgCount=Object.keys(data.images||{}).length;
         if(widths.length>1&&data.meta)data.meta.title=(data.meta.title||data.meta.url||'page')+' · '+wd+'px';
