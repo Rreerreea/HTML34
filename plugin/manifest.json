@@ -1,0 +1,15 @@
+{
+  "name": "HTML34",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "networkAccess": {
+    "allowedDomains": [
+      "https://134-209-203-141.sslip.io:8444",
+      "https://ice1.somafm.com",
+      "https://unpkg.com"
+    ],
+    "reasoning": "Captures pages via the author's open-source render server. SomaFM streams power the optional built-in radio; unpkg.com serves the MS Sans Serif webfont (98.css)."
+  }
+}
